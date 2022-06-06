@@ -1,5 +1,5 @@
-# Envio automatizado de mensagens por e-mail
-Este projeto trata-se de uma API de um CRUD de usuário e envio automatizado de mensagens por e-mail.  
+# next20221-m02-envio-automatizado-mensagem-email  
+Este projeto trata-se de uma API para um CRUD de usuário e envio automatizado de mensagens por e-mail.  
 
 
 ## Contexto
