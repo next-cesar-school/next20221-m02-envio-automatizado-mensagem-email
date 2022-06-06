@@ -1,5 +1,5 @@
 # Envio automatizado de mensagens por e-mail
-Este projeto trata-se de uma API para envio automatizado de mensagens por e-mail.  
+Este projeto trata-se de uma API de um CRUD de usuário e envio automatizado de mensagens por e-mail.  
 
 
 ## Contexto
