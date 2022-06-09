@@ -1,4 +1,4 @@
-package com.api.email.controllers;
+package com.api.email.controllers.email;
 
 import javax.validation.Valid;
 
