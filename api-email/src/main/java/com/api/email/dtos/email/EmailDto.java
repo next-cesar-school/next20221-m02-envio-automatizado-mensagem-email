@@ -1,4 +1,4 @@
-package com.api.email.dtos;
+package com.api.email.dtos.email;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;

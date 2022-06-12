@@ -1,4 +1,4 @@
-package com.api.email.services;
+package com.api.email.services.email;
 
 import java.time.LocalDateTime;
 
@@ -8,9 +8,9 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import com.api.email.enums.StatusEmail;
-import com.api.email.models.EmailModel;
-import com.api.email.repositories.EmailRepository;
+import com.api.email.enums.email.StatusEmail;
+import com.api.email.models.email.EmailModel;
+import com.api.email.repositories.email.EmailRepository;
 
 @Service
 public class EmailService {

@@ -1,4 +1,4 @@
-package com.api.email.enums;
+package com.api.email.enums.email;
 
 public enum StatusEmail {
     
