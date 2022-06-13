@@ -2,6 +2,7 @@ package com.api.email.models.user;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +22,7 @@ public class User implements Serializable{
 
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
-    private long idUser;
+    private UUID idUser;
     @Column(name = "name_user")
     private String nameUser;
     @Column(name = "email_user")

@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -58,7 +59,7 @@ public class UserController {
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getOneUser(@PathVariable(value = "id") long idUser){
+    public ResponseEntity<Object> getOneUser(@PathVariable(value = "id") UUID idUser){
         Optional<User> userOptional = userService.findById(idUser);
         if (!userOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found.");
@@ -67,7 +68,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteUser(@PathVariable(value = "id") long idUser){
+    public ResponseEntity<Object> deleteUser(@PathVariable(value = "id") UUID idUser){
         Optional<User> userOptional = userService.findById(idUser);
         if(!userOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found.");
@@ -77,7 +78,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> updateUser(@PathVariable(value = "id") long idUser, @RequestBody @Valid UserDto userDto){
+    public ResponseEntity<Object> updateUser(@PathVariable(value = "id") UUID idUser, @RequestBody @Valid UserDto userDto){
         Optional<User> userOptional = userService.findById(idUser);
         if(!userOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found.");

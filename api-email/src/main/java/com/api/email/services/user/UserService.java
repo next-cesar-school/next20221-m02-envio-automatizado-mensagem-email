@@ -2,6 +2,7 @@ package com.api.email.services.user;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import javax.transaction.Transactional;
 
@@ -36,7 +37,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public Optional<User> findById(long idUser) {
+    public Optional<User> findById(UUID idUser) {
         return userRepository.findById(idUser);
     }
 
