@@ -1,7 +1,8 @@
-package com.api.email.models;
+package com.api.email.models.email;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.api.email.enums.StatusEmail;
+import com.api.email.enums.email.StatusEmail;
 
 import lombok.Data;
 
@@ -22,7 +23,7 @@ public class EmailModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long emailId;
+    private UUID emailId;
     private String ownerRef;
     private String emailFrom;
     private String emailTo;
