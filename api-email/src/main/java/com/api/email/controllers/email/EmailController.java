@@ -44,7 +44,7 @@ public class EmailController {
         }
         EmailModel emailModel = new EmailModel();
         BeanUtils.copyProperties(emailDto, emailModel);
-        emailService.sendEmailBday(emailModel, userOptional.get());
+        emailService.sendEmailUser(emailModel, userOptional.get());
         return new ResponseEntity<Object>(emailModel, HttpStatus.CREATED);
     }
 

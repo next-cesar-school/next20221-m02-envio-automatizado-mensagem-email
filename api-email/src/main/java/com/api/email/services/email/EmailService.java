@@ -1,7 +1,6 @@
 package com.api.email.services.email;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
@@ -46,7 +45,7 @@ public class EmailService {
         }
     }
 
-    public EmailModel sendEmailBday(EmailModel emailModel, User user){
+    public EmailModel sendEmailUser(EmailModel emailModel, User user){
         emailModel.setSendDateEmail(LocalDateTime.now());
         try{
             SimpleMailMessage messageBday = new SimpleMailMessage();
