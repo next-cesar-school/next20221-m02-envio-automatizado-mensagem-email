@@ -33,19 +33,11 @@ public class MessageController {
   @PostMapping
   public ResponseEntity<Object> saveMessageModel(@RequestBody @Valid MessageDto messageDto) {
 
-    if (messageService.existsByMessageSubject(messageDto.getMessageSubject())) {
-      return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Subject already registered.");
-    }
-    if (messageService.existsByMessageText(messageDto.getMessageText())) {
-      return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Text already registered");
-    }
-
     var messageModel = new MessageModel();
     BeanUtils.copyProperties(messageDto, messageModel);
     return ResponseEntity.status(HttpStatus.CREATED).body(messageService.save(messageModel));
   }
 
-  }
 
   @GetMapping
   public ResponseEntity<List<MessageModel>> getAllMessageModels() {
@@ -82,5 +74,5 @@ public class MessageController {
     messageModel.setMessageText(MessageDto.getMessageText());
 
     return ResponseEntity.status(HttpStatus.OK).body(messageService.save(messageModel));
-
+  }
 }

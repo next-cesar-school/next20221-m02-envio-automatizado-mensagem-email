@@ -16,7 +16,7 @@ import com.api.email.services.email.EmailService;
 
 @RestController
 public class EmailController {
-    
+
     @Autowired
     EmailService emailService;
 
