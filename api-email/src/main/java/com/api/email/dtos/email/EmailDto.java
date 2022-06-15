@@ -13,7 +13,6 @@ public class EmailDto {
     @NotBlank
     @Email
     private String emailFrom;
-    @NotBlank
     @Email
     private String emailTo;
     @NotBlank
