@@ -34,4 +34,8 @@ public class MessageService {
   public void delete(MessageModel messageModel) {
     messageRepository.delete(messageModel);
   }
+
+  public Optional<MessageModel> findByMessageSubject(String messageSubject) {
+    return messageRepository.findByMessageSubject(messageSubject);
+  }
 }
