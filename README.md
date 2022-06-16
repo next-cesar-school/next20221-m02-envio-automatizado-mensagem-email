@@ -4,7 +4,8 @@ Este projeto trata-se de uma API para um CRUD de usuário e envio automatizado d
 
 ## Contexto
 
-Em um sistema de gerenciamento de projetos existe a necessidade de envio de mensagens por e-mail para finalidades diversas, tais como informe de agendamento de reuniões, notificação aproximação de prazos e possivelmente validação de endereços de e-mail por parte de usuários. Os usuários deste sistema podem não fazer parte de uma mesma instituição.
+Em um sistema de gerenciamento de projetos existe a necessidade de envio de mensagens por e-mail para finalidades diversas, tais como informe de agendamento de reuniões, notificação aproximação de prazos e possivelmente validação de endereços de e-mail por parte de usuários. 
+Os usuários deste sistema podem não fazer parte de uma mesma instituição.
 
 
 ## Objetivo
