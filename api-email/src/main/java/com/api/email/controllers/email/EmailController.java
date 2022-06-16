@@ -31,15 +31,23 @@ public class EmailController {
     MessageService messageService;
     
     @Autowired
-    EmailService emailService;
+    EmailService emailService; 
 
-    @PostMapping("/sending-email")
-    public ResponseEntity<EmailModel> sendingEmail(@RequestBody @Valid EmailDto emailDto){
+    @PostMapping("/sending-email/{nameUser}")
+    public ResponseEntity<Object> getOneUser(@PathVariable(value = "nameUser") String nameUser, 
+    @RequestBody @Valid EmailDto emailDto){
+        Optional<User> userOptional = userService.findByNameUser(nameUser);
+        if(!userOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found.");
+        }
+
         EmailModel emailModel = new EmailModel();
         BeanUtils.copyProperties(emailDto, emailModel);
-        emailService.sendEmail(emailModel);
-        return new ResponseEntity<EmailModel>(emailModel, HttpStatus.CREATED);
+        emailService.sendEmailUser(emailModel, userOptional.get());
+        return new ResponseEntity<Object>(emailModel, HttpStatus.CREATED);
     }
+
+
 
     @PostMapping("/sending-email/{nameUser}/{messageSubject}")
     public ResponseEntity<Object> getOneUser(@PathVariable(value = "nameUser") String nameUser, 
@@ -55,7 +63,7 @@ public class EmailController {
 
         EmailModel emailModel = new EmailModel();
         BeanUtils.copyProperties(emailDto, emailModel);
-        emailService.sendEmailUser(emailModel, userOptional.get(), messageOptional.get());
+        emailService.sendEmailUserSubject(emailModel, userOptional.get(), messageOptional.get());
         return new ResponseEntity<Object>(emailModel, HttpStatus.CREATED);
     }
 

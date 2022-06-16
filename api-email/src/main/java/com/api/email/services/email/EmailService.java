@@ -32,25 +32,27 @@ public class EmailService {
     @Autowired
     private JavaMailSender emailSender;
 
-    public EmailModel sendEmail(EmailModel emailModel) {
+
+    public EmailModel sendEmailUser(EmailModel emailModel, User user){
         emailModel.setSendDateEmail(LocalDateTime.now());
         try{
             SimpleMailMessage message = new SimpleMailMessage();
             message.setFrom(emailModel.getEmailFrom());
-            message.setTo(emailModel.getEmailTo());
+            message.setTo(user.getEmailUser());
             message.setSubject(emailModel.getSubject());
             message.setText(emailModel.getText());
             emailSender.send(message);
 
             emailModel.setStatusEmail(StatusEmail.SENT);
+            emailModel.setEmailTo(user.getEmailUser());
         } catch (MailException e){
             emailModel.setStatusEmail(StatusEmail.ERROR);
-        } finally {
+        } finally{
             return emailRepository.save(emailModel);
         }
     }
 
-    public EmailModel sendEmailUser(EmailModel emailModel, User user, MessageModel messageModel){
+    public EmailModel sendEmailUserSubject(EmailModel emailModel, User user, MessageModel messageModel){
         emailModel.setSendDateEmail(LocalDateTime.now());
         try{
             SimpleMailMessage message = new SimpleMailMessage();
