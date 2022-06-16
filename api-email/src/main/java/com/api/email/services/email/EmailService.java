@@ -10,8 +10,10 @@ import org.springframework.stereotype.Service;
 
 import com.api.email.enums.email.StatusEmail;
 import com.api.email.models.email.EmailModel;
+import com.api.email.models.message.MessageModel;
 import com.api.email.models.user.User;
 import com.api.email.repositories.email.EmailRepository;
+import com.api.email.repositories.message.MessageRepository;
 import com.api.email.repositories.user.UserRepository;
 
 
@@ -20,6 +22,9 @@ public class EmailService {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    MessageRepository messageRepository;
 
     @Autowired
     EmailRepository emailRepository;
@@ -45,18 +50,20 @@ public class EmailService {
         }
     }
 
-    public EmailModel sendEmailUser(EmailModel emailModel, User user){
+    public EmailModel sendEmailUser(EmailModel emailModel, User user, MessageModel messageModel){
         emailModel.setSendDateEmail(LocalDateTime.now());
         try{
-            SimpleMailMessage messageBday = new SimpleMailMessage();
-            messageBday.setFrom(emailModel.getEmailFrom());
-            messageBday.setTo(user.getEmailUser());
-            messageBday.setSubject(emailModel.getSubject());
-            messageBday.setText(emailModel.getText());
-            emailSender.send(messageBday);
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setFrom(emailModel.getEmailFrom());
+            message.setTo(user.getEmailUser());
+            message.setSubject(messageModel.getMessageSubject());
+            message.setText(messageModel.getMessageText());
+            emailSender.send(message);
 
             emailModel.setStatusEmail(StatusEmail.SENT);
             emailModel.setEmailTo(user.getEmailUser());
+            emailModel.setSubject(messageModel.getMessageSubject());
+            emailModel.setText(messageModel.getMessageText());
         } catch (MailException e){
             emailModel.setStatusEmail(StatusEmail.ERROR);
         } finally{

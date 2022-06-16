@@ -17,3 +17,5 @@ Implementar uma API REST que possibilite cadastrar usuários e gerenciar usuári
 https://spring.io/guides/tutorials/rest/  
 https://flask.palletsprojects.com  
 https://www.mailgun.com/  
+
+

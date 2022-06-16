@@ -15,8 +15,8 @@ public class EmailDto {
     private String emailFrom;
     @Email
     private String emailTo;
-    @NotBlank
+    
     private String subject;
-    @NotBlank
+    
     private String text;
 }
