@@ -1,4 +1,4 @@
-package com.api.email.models;
+package com.api.email.models.email;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.api.email.enums.StatusEmail;
+import com.api.email.enums.email.StatusEmail;
 
 import lombok.Data;
 
