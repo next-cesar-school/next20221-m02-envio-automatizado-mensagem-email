@@ -37,7 +37,6 @@ public class EmailService {
         emailModel.setSendDateEmail(LocalDateTime.now());
         try{
             SimpleMailMessage message = new SimpleMailMessage();
-            message.setFrom(emailModel.getEmailFrom());
             message.setTo(user.getEmailUser());
             message.setSubject(emailModel.getSubject());
             message.setText(emailModel.getText());
@@ -56,7 +55,6 @@ public class EmailService {
         emailModel.setSendDateEmail(LocalDateTime.now());
         try{
             SimpleMailMessage message = new SimpleMailMessage();
-            message.setFrom(emailModel.getEmailFrom());
             message.setTo(user.getEmailUser());
             message.setSubject(messageModel.getMessageSubject());
             message.setText(messageModel.getMessageText());
