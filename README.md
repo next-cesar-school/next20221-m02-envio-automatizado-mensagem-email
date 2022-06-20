@@ -55,21 +55,21 @@ Utilize o seguinte formato:
 
 }
 
-[http://localhost:8080/users](http://localhost:8080/users) - Para uso local
+[http://localhost:8080/users](http://localhost:8080/users) - Para uso local <div>
 [https://api-yara-sendingemail.herokuapp.com/users](https://api-yara-sendingemail.herokuapp.com/users) - Para uso em nuvem
 Usando essa URL request no Postman, você pode utilizar os seguintes métodos:
 POST, para cadastrar usuários (recomendamos não colocar espaços em branco); 
 GET, para listar todos usuários cadastrados; 
 
-[http://localhost:8080/users/id](http://localhost:8080/users/id) - Para uso local
+[http://localhost:8080/users/id](http://localhost:8080/users/id) - Para uso local <div>
 [https://api-yara-sendingemail.herokuapp.com/users/id](https://api-yara-sendingemail.herokuapp.com/users/id) - Para uso em nuvem
 Colocando o número do ID do usuário no lugar do "id", você pode usar os seguintes métodos: 
 GET, para buscar o usuário por ID;
 DELETE, para apagar o usuário identificado pelo ID; 
 PUT, para atualizar dados do usuário identificado pelo ID. 
 
-exemplos: [http://localhost:8080/users/12](http://localhost:8080/users/12)
-          [https://api-yara-sendingemail.herokuapp.com/users/12] (https://api-yara-sendingemail.herokuapp.com/users/12)
+exemplos: [http://localhost:8080/users/12](http://localhost:8080/users/12) - Para uso local <div>
+          [https://api-yara-sendingemail.herokuapp.com/users/12] (https://api-yara-sendingemail.herokuapp.com/users/12) - Para uso em nuvem
 
 ## CRUD de Mensagens
 
@@ -85,13 +85,13 @@ Utilize o seguinte formato:
 
 }
 
-[http://localhost:8080/message](http://localhost:8080/message) - Para uso local
+[http://localhost:8080/message](http://localhost:8080/message) - Para uso local <div>
 [https://api-yara-sendingemail.herokuapp.com/message](https://api-yara-sendingemail.herokuapp.com/message) - Para uso em nuvem
 Usando essa URL request no Postman, você pode utilizar os seguintes métodos:
 POST, para cadastrar mensagens; 
 GET, para listar todas mensagens cadastradas; 
 
-[http://localhost:8080/message/id](http://localhost:8080/users/id) - Para uso local
+[http://localhost:8080/message/id](http://localhost:8080/users/id) - Para uso local <div>
 [https://api-yara-sendingemail.herokuapp.com/message](https://api-yara-sendingemail.herokuapp.com/message/id) - Para uso em nuvem
 Colocando o número do ID do usuário depois do "id", você pode usar os seguintes métodos: 
 GET, para buscar a mensagem por ID;
@@ -103,7 +103,7 @@ PUT, para atualizar dados da mensagem identificado pelo ID.
  
 Para enviar e-mails utilizando a tabela de usuários, você deve seguir o seguintes modelos: 
 
-[http://localhost:8080/sending-email/nameUser](http://localhost:8080/sending-email/nameUser) - Para uso local
+[http://localhost:8080/sending-email/nameUser](http://localhost:8080/sending-email/nameUser) - Para uso local <div>
 [https://api-yara-sendingemail.herokuapp.com/sending-email/nameUser](https://api-yara-sendingemail.herokuapp.com/sending-email/nameUser) - Para uso em nuvem
 Para mandar o e-mail para um usuário cadastrado no banco de dados, troque "nameUser" pelo nome do usuário que você quer enviar. 
 
@@ -123,13 +123,13 @@ Utilize o seguinte formato:
 
 
 Para enviar e-mail usando mensagens pré-cadastradas para usuários cadastrados, utilize a seguinte URL: 
-[http://localhost:8080/sending-email/nameUser/messageSubject](http://localhost:8080/sending-email/nameUser/messageSubject) - Para uso local
+[http://localhost:8080/sending-email/nameUser/messageSubject](http://localhost:8080/sending-email/nameUser/messageSubject) - Para uso local <div>
 [https://api-yara-sendingemail.herokuapp.com/sending-email/nameUser/messageSubject](https://api-yara-sendingemail.herokuapp.com/sending-email/nameUser/messageSubject) - Para uso em nuvem
 
 No campo "nameUser" será passado o nome conforme foi cadastrado, sem espaço, e no "messageSubject" será passado o assunto da mensagem de e-mail também conforme cadastrado no banco de dados: 
 
-exemplo: [http://localhost:8080/sending-email/TulioAlbu/Aniversario](http://localhost:8080/sending-email/TulioAlbu/Aniversario)
-         [https://api-yara-sendingemail.herokuapp.com/sending-email/TulioAlbu/Aniversario](https://api-yara-sendingemail.herokuapp.com/sending-email/TulioAlbu/Aniversario
+exemplo: [http://localhost:8080/sending-email/TulioAlbu/Aniversario](http://localhost:8080/sending-email/TulioAlbu/Aniversario) - Para uso local <div>
+         [https://api-yara-sendingemail.herokuapp.com/sending-email/TulioAlbu/Aniversario](https://api-yara-sendingemail.herokuapp.com/sending-email/TulioAlbu/Aniversario) - Para uso em nuvem
 
 ## Nossos contatos: 
 
