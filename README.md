@@ -8,7 +8,7 @@
 
 -   Há também um repositório de mensagens que recebe temas e textos pré-definidos, onde também é possível gerenciar de forma constante, fazendo busca por assuntos e registro;
 
--   Utilizando uma ferramenta auxiliar (Postman), é possível confirmar o envio, retornando data e horário.
+-   Utilizando uma ferramenta auxiliar (Postman), é possível confirmar o envio, retornando data e horário. O aplicativo roda em nuvem graças ao Heroku, plataforma de Deploy. Desta forma, é possível acessar as funções em qualquer máquina. 
 
 
 # Criado por
@@ -26,46 +26,73 @@ Trabalho de conclusão do curso NExT - Nova Experiência de Trabalho;
 Sem fins comerciais;
 
 
-## O que você vai precisar 
+## O que você vai precisar para rodar locamente a aplicação
 
 * [OpenJDK 17.0.2+](https://jdk.java.net/archive/);
 * [Maven 4.0+](https://maven.apache.org/download.cgi);
 * Você pode copiar o código direto para sua IDE. Nós usamos o [VS Code](https://code.visualstudio.com/);
 * Uma ferramenta para fazer REST requests. Recomendamos o [Postman](https://www.postman.com/downloads/);
 * [Spring Boot 2.7.0+](https://spring.io/projects/spring-boot);
-* [MySQL Connector](https://www.mysql.com/).
+* [JBDC Connector](https://jdbc.postgresql.org/download.html)).
+
+No entanto, não é necessário rodar o código na sua máquina. A aplicação funciona em nuvem através do Heroku e você pode acessar as instruções no link https://api-yara-sendingemail.herokuapp.com/; 
 
 ## CRUD de Usuários
 
-Primeiro, você terá que ir em Aplication Properties e atualizar os dados de username e senha, considerando seu banco de dados local e o endereço que enviará as mensagens pré-formatadas; 
+Caso que queira rodar a aplicação localmente, primeiro você terá que ir em Aplication Properties e atualizar os dados de username e senha, considerando seu banco de dados local e o endereço que enviará as mensagens pré-formatadas; 
 
 Depois de rodar a aplicação e com o banco de dados sincronizado na sua máquina, você precisará de uma ferramenta para fazer REST Requests. Todos os testes de funcionalidade do CRUD e do envio de e-mail deste projeto foram feitos usando o Postman.
 
 O banco de dados recebe informações sobre usuários, com os parâmetros "nameUser" e "emailUser".
 
-[http://localhost:8080/users](http://localhost:8080/users)
+Utilize o seguinte formato: 
+
+{
+
+"nameUser": "MariaClara",
+
+"emailUser": "mariaclara@email.com"
+
+}
+
+[http://localhost:8080/users](http://localhost:8080/users) - Para uso local
+[https://api-yara-sendingemail.herokuapp.com/users](https://api-yara-sendingemail.herokuapp.com/users) - Para uso em nuvem
 Usando essa URL request no Postman, você pode utilizar os seguintes métodos:
 POST, para cadastrar usuários (recomendamos não colocar espaços em branco); 
 GET, para listar todos usuários cadastrados; 
 
-[http://localhost:8080/users/id](http://localhost:8080/users/id)
+[http://localhost:8080/users/id](http://localhost:8080/users/id) - Para uso local
+[https://api-yara-sendingemail.herokuapp.com/users/id](https://api-yara-sendingemail.herokuapp.com/users/id) - Para uso em nuvem
 Colocando o número do ID do usuário no lugar do "id", você pode usar os seguintes métodos: 
 GET, para buscar o usuário por ID;
 DELETE, para apagar o usuário identificado pelo ID; 
 PUT, para atualizar dados do usuário identificado pelo ID. 
 
-exemplo: [http://localhost:8080/users/12](http://localhost:8080/users/12)
+exemplos: [http://localhost:8080/users/12](http://localhost:8080/users/12)
+          [https://api-yara-sendingemail.herokuapp.com/users/12] (https://api-yara-sendingemail.herokuapp.com/users/12)
 
 ## CRUD de Mensagens
 
 Há também uma forma de adicionar mensagens pré-formatadas na tabela, com os parâmetros "messageSubject" e "messageText".
 
-[http://localhost:8080/message](http://localhost:8080/message)
+Utilize o seguinte formato: 
+
+{
+
+"messageSubject": "Natal",
+
+"messageText": "Feliz Natal !!"
+
+}
+
+[http://localhost:8080/message](http://localhost:8080/message) - Para uso local
+[https://api-yara-sendingemail.herokuapp.com/message](https://api-yara-sendingemail.herokuapp.com/message) - Para uso em nuvem
 Usando essa URL request no Postman, você pode utilizar os seguintes métodos:
 POST, para cadastrar mensagens; 
 GET, para listar todas mensagens cadastradas; 
 
-[http://localhost:8080/message/id](http://localhost:8080/users/id)
+[http://localhost:8080/message/id](http://localhost:8080/users/id) - Para uso local
+[https://api-yara-sendingemail.herokuapp.com/message](https://api-yara-sendingemail.herokuapp.com/message/id) - Para uso em nuvem
 Colocando o número do ID do usuário depois do "id", você pode usar os seguintes métodos: 
 GET, para buscar a mensagem por ID;
 DELETE, para apagar a mensagem identificado pelo ID; 
@@ -76,28 +103,33 @@ PUT, para atualizar dados da mensagem identificado pelo ID.
  
 Para enviar e-mails utilizando a tabela de usuários, você deve seguir o seguintes modelos: 
 
-[http://localhost:8080/sending-email/nameUser](http://localhost:8080/sending-email/nameUser)
+[http://localhost:8080/sending-email/nameUser](http://localhost:8080/sending-email/nameUser) - Para uso local
+[https://api-yara-sendingemail.herokuapp.com/sending-email/nameUser](https://api-yara-sendingemail.herokuapp.com/sending-email/nameUser) - Para uso em nuvem
 Para mandar o e-mail para um usuário cadastrado no banco de dados, troque "nameUser" pelo nome do usuário que você quer enviar. 
 
 Exemplo: sending-email/AllanArruda
 
-No corpo do email, você deve preencher os seguintes campos: 
+No corpo do email, você deve preencher os campos subject e text;
 
-- ownerRef;
+Utilize o seguinte formato: 
 
-- emailFrom; 
+{
 
-- subject;
+"subject": "Aniversário",
 
-- text;
+"text": "Parabéns João !!"
+
+}
 
 
 Para enviar e-mail usando mensagens pré-cadastradas para usuários cadastrados, utilize a seguinte URL: 
-[http://localhost:8080/sending-email/nameUser/messageSubject](http://localhost:8080/sending-email/nameUser/messageSubject)
+[http://localhost:8080/sending-email/nameUser/messageSubject](http://localhost:8080/sending-email/nameUser/messageSubject) - Para uso local
+[https://api-yara-sendingemail.herokuapp.com/sending-email/nameUser/messageSubject](https://api-yara-sendingemail.herokuapp.com/sending-email/nameUser/messageSubject) - Para uso em nuvem
 
 No campo "nameUser" será passado o nome conforme foi cadastrado, sem espaço, e no "messageSubject" será passado o assunto da mensagem de e-mail também conforme cadastrado no banco de dados: 
 
 exemplo: [http://localhost:8080/sending-email/TulioAlbu/Aniversario](http://localhost:8080/sending-email/TulioAlbu/Aniversario)
+         [https://api-yara-sendingemail.herokuapp.com/sending-email/TulioAlbu/Aniversario](https://api-yara-sendingemail.herokuapp.com/sending-email/TulioAlbu/Aniversario
 
 ## Nossos contatos: 
 
