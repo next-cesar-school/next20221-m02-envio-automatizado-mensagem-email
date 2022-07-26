@@ -1,4 +1,6 @@
-<div align="center"/div><a href="https://im.ge/i/r4kqNp"><img src="https://i.im.ge/2022/06/17/r4kqNp.md.png" alt="r4kqNp.md.png" border="0"></a></div>
+<p align="center"> 
+<img src="https://tulioalbu.github.io/Yara_API-envio-de-emails-automatizados/Yara1.png" width="400" height="400"  />
+</p>
 
 # Yara - Message in a Bottle
 
